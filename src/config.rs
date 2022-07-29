@@ -1,8 +1,9 @@
+use schemars::JsonSchema;
 use std::collections::HashMap;
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize, JsonSchema)]
 pub struct Cab {
     pub name: Option<String>,
     pub address: usize,
