@@ -16,6 +16,7 @@ use std::time::Duration;
 
 mod cab_functions;
 mod config;
+mod throttle;
 use crate::config::{Cab, Config};
 
 #[openapi(skip)]
@@ -53,7 +54,7 @@ fn rocket() -> _ {
     rocket
         .mount(
             "/",
-            openapi_get_routes![index, get_cabs, cab_functions::post_cab_function],
+            openapi_get_routes![index, get_cabs, cab_functions::post_cab_function, throttle::post_throttle],
         )
         .mount(
             "/swagger-ui/",
